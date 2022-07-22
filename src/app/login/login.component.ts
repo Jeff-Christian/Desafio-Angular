@@ -8,6 +8,9 @@ import { faUser, faInfoCircle, faLock, faEyeSlash } from '@fortawesome/free-soli
 })
 export class LoginComponent implements OnInit {
 
+  email = '';
+  senha = '';
+
   faUser = faUser;
   faInfoCircle = faInfoCircle;
   faLock = faLock;
@@ -16,6 +19,11 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  login(){
+    console.log(this.email);
+    console.log(this.senha);
   }
 
 }
