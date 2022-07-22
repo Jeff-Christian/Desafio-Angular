@@ -13,3 +13,43 @@
   margin-top: 3em;
 }
 
+.form h2{
+  color: #1351d8;
+  margin-bottom: 1em;
+}
+
+.input[type=text]:focus{
+  border-color: #1351d8;
+}
+
+.inputIcon{
+  position: relative;
+}
+
+.input{
+  position: relative;
+}
+
+#faInput{
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 9px 8px;
+  color: #1351d8;
+}
+
+#faInputEye{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 9px 8px;
+  color: #1351d8;
+}
+
+.form-check{
+  margin-left: 20em;
+}
+
+button{
+  margin-top: 1em;
+}
