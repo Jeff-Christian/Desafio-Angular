@@ -13,8 +13,8 @@ export class AuthenticationService {
 
   authenticate(email:string, senha:string): Observable<any>{
     return this.httpClient.post('http://localhost:3000/user/login', {
-      user_email: email,
-      user_password: senha,
+      userName: email,
+      password: senha,
     })
   }
 

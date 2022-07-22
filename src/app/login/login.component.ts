@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../authentication/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { faUser, faInfoCircle, faLock, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
   faLock = faLock;
   faEyeSlash = faEyeSlash;
 
-  constructor() { }
+  constructor(
+    private authService: AuthenticationService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +27,14 @@ export class LoginComponent implements OnInit {
   login(){
     console.log(this.email);
     console.log(this.senha);
+
+
+    this.authService.authenticate(this.email, this.senha).subscribe(() =>{
+      console.log('usuário autenticado com sucesso');
+    }, (error) => {
+      alert('Email ou senha inválidos');
+      console.log(error);
+    })
   }
 
 }
