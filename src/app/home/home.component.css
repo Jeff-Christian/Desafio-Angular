@@ -1,0 +1,26 @@
+.card {
+  margin: 0 auto;
+  left: 37%;
+  right: 50%;
+  margin-bottom: 10px;
+  width: 70vh;
+  height: 60vh;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid black;
+}
+
+.title{
+  width: 100%;
+  border-bottom: 1px solid #F2F2F2;
+  margin-bottom: 2em;
+}
+
+.card-title{
+  color: #B2AEBF;
+}
+
+.card-body p{
+  color: #1351d8;
+  font-size: 1.6em;
+}
