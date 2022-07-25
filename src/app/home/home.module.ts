@@ -1,3 +1,4 @@
+import { HeaderModule } from '../header/header.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { HomeComponent } from './home.component';
     CommonModule,
     HomeRoutingModule,
     FontAwesomeModule,
+    HeaderModule,
   ],
   exports:[
     HomeComponent,

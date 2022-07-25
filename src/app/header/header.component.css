@@ -1,0 +1,44 @@
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.slide{
+  height: 100%;
+  width: 15em;
+  position: absolute;
+  background-color: #fff;
+  transition: 0.5s ease;
+  transform: translateX(-250px);
+  margin-left: 0.2em;
+}
+
+.navbar-dark .navbar-toggler{
+  border-color: transparent;
+  background-color: #1351d8;
+}
+
+#userIcon{
+  color: #1351d8;
+}
+
+.see{
+  transform: translateX(0);
+}
+
+.logo-menu{
+  width: 130px;
+}
+
+.nav-item{
+  margin-top: 1em;
+}
+
+.nav-link{
+  color: #1351d8;
+  background-color: #D2D4BC;
+  padding-left: 1.2em;
+}
