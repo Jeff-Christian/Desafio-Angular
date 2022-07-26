@@ -1,0 +1,82 @@
+<app-header></app-header>
+<h1 class="text-center">Dashboard FORD</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <div class="title">
+          <p>Veículo</p>
+        </div>
+        <select id="cars" name="carlist">
+          <option value="ranger">Ranger</option>
+          <option value="mustang">Mustang</option>
+          <option value="territory">Territory</option>
+          <option value="bronco-sport">Bronco Sport</option>
+        </select>
+    </div>
+    <div class="col">
+      <div class="title">
+        <p>Total de Vendas</p>
+      </div>
+      <span> {{ volumetotal }} </span>
+      <p>Unid.</p>
+    </div>
+    <div class="col">
+      <div class="title">
+        <p>Conectados</p>
+      </div>
+      <span> {{ connected }} </span>
+      <p>Unid.</p>
+    </div>
+    <div class="col">
+      <div class="title">
+        <p>Update Software</p>
+      </div>
+      <span> {{ softwareUpdates }} </span>
+      <p>Unid.</p>
+    </div>
+  </div>
+</div>
+
+<!-- image -->
+<div class="text-center">
+  <img src="assets\img\mustang.png" class="rounded" alt="...">
+</div>
+
+<!-- table -->
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr class="top">
+        <th scope="col">Código - Vin</th>
+        <th scope="col">Odômetro</th>
+        <th scope="col">Nível de Combustivel</th>
+        <th scope="col">Status</th>
+        <th scope="col">Lat.</th>
+        <th scope="col">Long.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">
+          <input type="text" name="Code" id="codeVin">
+        </td>
+        <td> {{ odometer }} Odometro </td>
+        <td> {{ fuelLevel }} Nivel do Combustivel </td>
+        <td> {{ status }} Status </td>
+        <td> {{ lat }} Lat. </td>
+        <td> {{ long }} Long. </td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+  </table>
+</div>

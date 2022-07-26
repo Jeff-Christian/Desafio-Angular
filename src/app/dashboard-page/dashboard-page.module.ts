@@ -1,26 +1,20 @@
 import { HeaderComponent } from './../header/header.component';
-import { HeaderModule } from './../header/header.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderModule } from './../header/header.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
 
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
-    HomeRoutingModule,
     FontAwesomeModule,
-    HeaderModule
+    HeaderModule,
   ],
-  exports:[
-    HomeComponent,
+  exports: [
     HeaderComponent
   ]
 })
-export class HomeModule { }
+export class DashboardPageModule { }
