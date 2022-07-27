@@ -6,6 +6,16 @@
   flex-direction: row-reverse;
 }
 
+.dropdown-item{
+  padding: 0.25rem 3rem;
+}
+
+.dropdown-menu[data-bs-popper] {
+  top: 100%;
+  left: -96px;
+  margin-top: 0.125rem;
+}
+
 .slide{
   height: 100%;
   width: 15em;

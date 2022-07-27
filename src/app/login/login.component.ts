@@ -35,4 +35,8 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  show(){
+    console.log('mostrando senha');
+  }
+
 }

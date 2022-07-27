@@ -1,9 +1,14 @@
 <nav class="navbar navbar-dark">
   <div class="container-fluid">
 
-    <a class="navbar-brand" routerLink="">
-      <fa-icon [icon]="faUser" id="userIcon" style="cursor: pointer;"></fa-icon>
-    </a>
+    <div class="btn-group">
+      <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <fa-icon [icon]="faUser" id="userIcon" style="cursor: pointer;"></fa-icon>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" routerLink="/login"><fa-icon [icon]="faArrowRightFromBracket"></fa-icon> Logout</a></li>
+      </ul>
+    </div>
 
     <button id="btn-toggle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sideBar" style="cursor: pointer;" aria-expanded="true" (click)="toggle()">
       <span class="navbar-toggler-icon"></span>
@@ -18,10 +23,10 @@
       <span><img src="assets\img\ford.png" alt="logo da ford" class="logo-menu"></span>
     </li>
     <li class="nav-item">
-      <a routerLink="home" class="nav-link">Home</a>
+      <a routerLink="/home" class="nav-link">Home</a>
     </li>
     <li class="nav-item">
-      <a routerLink="dashboardPage" class="nav-link">Dashboard</a>
+      <a routerLink="/dashboardPage" class="nav-link">Dashboard</a>
     </li>
   </ul>
 </div>

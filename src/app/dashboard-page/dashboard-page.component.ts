@@ -1,5 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { VehicleService } from '../services/vehicle.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -22,9 +24,30 @@ export class DashboardPageComponent implements OnInit {
 
   faUser = faUser;
 
-  constructor() { }
+  vehicle: any;
 
-  ngOnInit(): void {
+  constructor(
+    private vehicleService: VehicleService
+  ) { }
+
+  ngOnInit() {
+
+    this.vehicleService.getVehicle().subscribe(
+      (data) => {
+        this.vehicle = data;
+        console.log(this.vehicle[1]);
+      },
+      (error) => {
+        console.log(error);
+
+      }
+    )
+
   }
+
+  showData(){
+    console.log(this.vehicle);
+  }
+
 
 }
