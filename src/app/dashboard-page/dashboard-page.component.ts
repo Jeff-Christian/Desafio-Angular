@@ -2,12 +2,14 @@
 import { Component, OnInit } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { VehicleService } from '../services/vehicle.service';
+import { Vehicles } from '../dashboard-page/dashboard';
 
 @Component({
   selector: 'app-dashboard-page',
   templateUrl: './dashboard-page.component.html',
   styleUrls: ['./dashboard-page.component.css']
 })
+
 export class DashboardPageComponent implements OnInit {
 
   volumetotal = '';
@@ -24,7 +26,7 @@ export class DashboardPageComponent implements OnInit {
 
   faUser = faUser;
 
-  vehicle: any;
+  vehicleList?: Vehicles[];
 
   constructor(
     private vehicleService: VehicleService
@@ -33,21 +35,19 @@ export class DashboardPageComponent implements OnInit {
   ngOnInit() {
 
     this.vehicleService.getVehicle().subscribe(
-      (data) => {
-        this.vehicle = data;
-        console.log(this.vehicle[1]);
-      },
+    (data:any) => {
+      this.vehicleList = data['vehicles'];
+      console.log(this.vehicleList);
+    },
       (error) => {
-        console.log(error);
-
+      console.log(error);
       }
     )
 
   }
 
-  showData(){
-    console.log(this.vehicle);
+  ChangeInfo(e: any){
+    console.log(e.target.value);
   }
-
 
 }

@@ -1,5 +1,7 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Vehicles } from '../dashboard-page/dashboard';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +14,8 @@ export class VehicleService {
     private httpClient: HttpClient
   ) { }
 
-  public getVehicle(){
-    return this.httpClient.get(`${this.URL}/vehicle`);
+  getVehicle():Observable<any[]>{
+    return this.httpClient.get<Vehicles[]>(`${this.URL}/vehicle`);
   }
 
 }

@@ -7,18 +7,17 @@
         <div class="title">
           <p>Veículo</p>
         </div>
-        <select id="cars" name="carlist">
-          <option value="ranger">Ranger</option>
-          <option value="mustang">Mustang</option>
-          <option value="territory">Territory</option>
-          <option value="bronco-sport">Bronco Sport</option>
+        <select name="vehicles" (change)="ChangeInfo($event)">
+          <option> -- Select --</option>
+          <option [value]="vehicle.id" *ngFor="let vehicle of vehicleList">
+            {{ vehicle.vehicle }}
+          </option>
         </select>
     </div>
     <div class="col">
       <div class="title">
         <p>Total de Vendas</p>
       </div>
-      <span> {{ volumetotal }} </span>
       <p>Unid.</p>
     </div>
     <div class="col">
