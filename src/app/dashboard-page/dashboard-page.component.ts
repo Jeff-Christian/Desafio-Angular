@@ -1,3 +1,5 @@
+import { VehiclesData } from './dashboardData';
+import { VehicleDataService } from './../services/vehicle-data.service';
 
 import { Component, OnInit } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -27,11 +29,16 @@ export class DashboardPageComponent implements OnInit {
   connectedValue: any;
   softwareValue: any;
 
+  vehicleDataList?: VehiclesData[];
+
   constructor(
-    private vehicleService: VehicleService
+    private vehicleService: VehicleService,
+    private vehicleDataService: VehicleDataService,
   ) { }
 
   ngOnInit() {
+
+    // Vehicle
 
     this.vehicleService.getVehicle().subscribe(
     (data:any) => {
@@ -41,6 +48,18 @@ export class DashboardPageComponent implements OnInit {
     },
       (error) => {
       console.log(error);
+      }
+    );
+
+    // VehicleData
+
+    this.vehicleDataService.getVehicleData().subscribe(
+      (data:any) => {
+        this.vehicleDataList = data['vehicleData'];
+        console.log(this.vehicleDataList);
+      },
+      (error) => {
+        console.log(error);
       }
     )
 
