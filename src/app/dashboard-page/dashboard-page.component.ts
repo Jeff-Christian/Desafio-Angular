@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { VehicleService } from '../services/vehicle.service';
 import { Vehicles } from '../dashboard-page/dashboard';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -14,15 +15,8 @@ import { Vehicles } from '../dashboard-page/dashboard';
 
 export class DashboardPageComponent implements OnInit {
 
-  odometer = '';
-  tirePressure = '';
-  status = '';
-  batteryStatus = '';
-  fuelLevel = '';
-  lat = '';
-  long = '';
-
   faUser = faUser;
+  searchValue!: string;
 
   vehicleList?: Vehicles[];
   volumetotalValue: any;
@@ -43,8 +37,6 @@ export class DashboardPageComponent implements OnInit {
     this.vehicleService.getVehicle().subscribe(
     (data:any) => {
       this.vehicleList = data['vehicles'];
-      console.log(this.vehicleList);
-
     },
       (error) => {
       console.log(error);
@@ -105,6 +97,11 @@ export class DashboardPageComponent implements OnInit {
       updateSoftware!.textContent = this.vehicleList![3].softwareUpdates;
       let image = document.getElementById('image')!.setAttribute('src', 'assets/img/broncoSport.png')
     }
+
+  }
+
+  pressValue(e: any){
+    console.log(e);
 
   }
 

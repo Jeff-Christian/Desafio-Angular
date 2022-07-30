@@ -65,15 +65,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let vehicleData of vehicleDataList">
         <td scope="row">
-          <input type="text" name="Code" id="codeVin">
+          <input type="text" name="search" id="search" value="2FRHDUYS2Y63NHD22454" [(ngModel)]="searchValue">
         </td>
-        <td> {{ odometer }} Odometro </td>
-        <td> {{ fuelLevel }} Nivel do Combustivel </td>
-        <td> {{ status }} Status </td>
-        <td> {{ lat }} Lat. </td>
-        <td> {{ long }} Long. </td>
+        <td> {{ vehicleData.odometer }} Odometro </td>
+        <td> {{ vehicleData.fuelLevel }} Nivel do Combustivel </td>
+        <td> {{ vehicleData.status }} Status </td>
+        <td> {{ vehicleData.lat }} Lat. </td>
+        <td> {{ vehicleData.long }} Long. </td>
       </tr>
     </tbody>
     <thead>
