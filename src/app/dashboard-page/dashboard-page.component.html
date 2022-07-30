@@ -7,7 +7,7 @@
         <div class="title">
           <p>Veículo</p>
         </div>
-        <select name="vehicles" (change)="ChangeInfo($event)">
+        <select (change)="ChangeInfo($event)">
           <option> -- Select --</option>
           <option [value]="vehicle.id" *ngFor="let vehicle of vehicleList">
             {{ vehicle.vehicle }}
@@ -18,20 +18,29 @@
       <div class="title">
         <p>Total de Vendas</p>
       </div>
+      <span id="totalVendas">
+
+      </span>
       <p>Unid.</p>
     </div>
     <div class="col">
       <div class="title">
         <p>Conectados</p>
       </div>
-      <span> {{ connected }} </span>
+      <span id="connected">
+
+      </span>
       <p>Unid.</p>
     </div>
     <div class="col">
       <div class="title">
         <p>Update Software</p>
       </div>
-      <span> {{ softwareUpdates }} </span>
+
+      <span id="updateSoftware">
+
+
+      </span>
       <p>Unid.</p>
     </div>
   </div>
@@ -39,7 +48,7 @@
 
 <!-- image -->
 <div class="text-center">
-  <img src="assets\img\mustang.png" class="rounded" alt="...">
+  <img src="assets\img\mustang.png" id="image">
 </div>
 
 <!-- table -->

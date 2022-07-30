@@ -1,7 +1,7 @@
 export class Vehicles {
-  id?: number;
-  vehicle?: string;
-  volumetotal?: number;
-  connected?: number;
-  softwareUpdates?: number;
+  id!: number;
+  vehicle!: string;
+  volumetotal!: any;
+  connected!: any;
+  softwareUpdates!: any;
 }

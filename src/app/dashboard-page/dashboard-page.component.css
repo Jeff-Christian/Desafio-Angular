@@ -26,6 +26,15 @@ select{
   width: 11em;
 }
 
+/* cards */
+#totalVendas, #connected, #updateSoftware{
+  color: #1351d8;
+  font-size: 2em;
+}
+
+
+/* table */
+
 .table-responsive{
   margin-left: 2em;
   margin-right: 2em;
