@@ -5,7 +5,6 @@ import { Component, OnInit } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { VehicleService } from '../services/vehicle.service';
 import { Vehicles } from '../dashboard-page/dashboard';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -49,6 +48,7 @@ export class DashboardPageComponent implements OnInit {
       (data:any) => {
         this.vehicleDataList = data['vehicleData'];
         console.log(this.vehicleDataList);
+
       },
       (error) => {
         console.log(error);

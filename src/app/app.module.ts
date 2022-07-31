@@ -9,11 +9,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
+import { SearchfilterPipe } from './services/pipes/searchfilter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardPageComponent,
+    SearchfilterPipe,
   ],
   imports: [
     BrowserModule,

@@ -45,6 +45,7 @@ thead{
 }
 
 .top th{
+  color: #F7F7F7;
   border: 1px solid black;
 }
 
@@ -52,4 +53,20 @@ thead{
   width: 100%;
   height: 20px;
   background-color: #1351d8;
+}
+
+#search{
+  padding-left: 0;
+  padding: 0.5em;
+  padding-right: 1em;
+  margin-bottom: 0;
+}
+
+#search::placeholder{
+  color: black;
+}
+
+.utility td{
+  font-weight: bold;
+  color: black;
 }
