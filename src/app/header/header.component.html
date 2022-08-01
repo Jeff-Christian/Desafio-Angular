@@ -6,7 +6,7 @@
         <fa-icon [icon]="faUser" id="userIcon" style="cursor: pointer;"></fa-icon>
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" routerLink="/login"><fa-icon [icon]="faArrowRightFromBracket"></fa-icon> Logout</a></li>
+        <li><a class="dropdown-item" (click)="_authService.logoutUser(); " style="cursor: pointer;"><fa-icon [icon]="faArrowRightFromBracket"></fa-icon> Logout</a></li>
       </ul>
     </div>
 
