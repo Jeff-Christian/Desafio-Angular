@@ -67,8 +67,8 @@
 
     <tbody>
         <tr class="utility">
-          <th scope="row"><input type="text" name="search" id="search" value="2FRHDUYS2Y63NHD22454" [(ngModel)]="searchValue" placeholder="2FRHDUYS2Y63NHD22454"></th>
-          <td>Odômetro</td>
+          <th scope="row"><input type="text" name="search" id="search" value="2FRHDUYS2Y63NHD22454" [(ngModel)]="searchValue" placeholder="2FRHDUYS2Y63NHD22454" #table="ngModel"></th>
+          <td> Odômetro </td>
           <td>NíveldeCombustivel</td>
           <td>Status</td>
           <td>Lat.</td>
@@ -76,9 +76,9 @@
         </tr>
     </tbody>
 
-  <tbody>
+    <tbody>
       <tr *ngFor="let vehicleData of vehicleDataList! | searchfilter: searchValue">
-        <td scope="col"> Código - Vin </td>
+        <td scope="col"> {{ vehicleData.vin }} </td>
         <td scope="col"> {{ vehicleData.odometer }} Km </td>
         <td scope="col"> {{ vehicleData.fuelLevel }} % </td>
         <td scope="col"> {{ vehicleData.status }}  </td>
