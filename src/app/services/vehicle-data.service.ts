@@ -1,14 +1,15 @@
+import { environment } from './../../environments/environment.prod';
 import { VehiclesData } from './../dashboard-page/dashboardData';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+const API = environment.apiURL;
+
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleDataService {
-
-  URL = 'http://localhost:3000';
 
   constructor(
     private httpClient: HttpClient
@@ -16,7 +17,7 @@ export class VehicleDataService {
 
   getVehicleData():Observable<any[]>{
 
-    return this.httpClient.get<VehiclesData[]>(`${this.URL}/vehicleData`);
+    return this.httpClient.get<VehiclesData[]>(`${API}/vehicleData`);
 
   }
 

@@ -35,8 +35,15 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  show(){
-    console.log('mostrando senha');
+  show(e: any){
+    let password = document.getElementById('password') as HTMLInputElement;
+
+    if (password.type === 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
+
   }
 
 }

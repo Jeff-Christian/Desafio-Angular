@@ -23,10 +23,9 @@
 
       <div class="form-group">
         <div class="input">
-          <input class="form-control" type="password" placeholder="Insira sua senha" [(ngModel)]="senha" name="senha" #password="ngModel" required>
+          <input class="form-control" type="password" placeholder="Insira sua senha" [(ngModel)]="senha" id="password" name="senha" #password="ngModel" required>
           <fa-icon id="faInput" [icon]="faLock"></fa-icon>
-          <fa-icon id="faInputEye" [icon]="faEyeSlash" ></fa-icon>
-          <!-- <button (click)="show()"><fa-icon id="faInputEye" [icon]="faEyeSlash" ></fa-icon></button> -->
+          <fa-icon id="faInputEye" [icon]="faEyeSlash" (click)="show($event)" style="cursor: pointer;"></fa-icon>
         </div>
       </div>
 
