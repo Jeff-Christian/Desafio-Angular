@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { UserService } from './../authentication/user.service';
 import { AuthenticationService } from './../authentication/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -13,8 +15,12 @@ export class HeaderComponent implements OnInit {
   faUser = faUser;
   faArrowRightFromBracket = faArrowRightFromBracket;
 
+  user$ = this.userService.returnUser();
+
   constructor(
-    public _authService: AuthenticationService
+    public _authService: AuthenticationService,
+    private userService: UserService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +30,11 @@ export class HeaderComponent implements OnInit {
   toggle(){
     let slide = document.querySelector(".slide");
     slide?.classList.toggle('see');
+  }
+
+  logout(){
+    this.userService.logOut();
+    this.router.navigate(['/login']);
   }
 
 }
