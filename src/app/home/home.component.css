@@ -17,10 +17,14 @@
 }
 
 .card-title{
-  color: #B2AEBF;
+  color: #5c5a63;
 }
 
 .card-body p{
   color: #1351d8;
   font-size: 1.6em;
+}
+
+.text-bg-light{
+  background-color: RGBA(248,249,250,var(--bs-bg-opacity,0.75))!important;
 }

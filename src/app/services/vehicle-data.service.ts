@@ -15,10 +15,16 @@ export class VehicleDataService {
     private httpClient: HttpClient
   ) { }
 
-  getVehicleData():Observable<any[]>{
-
+  getVehicleData(): Observable<VehiclesData[]>{
     return this.httpClient.get<VehiclesData[]>(`${API}/vehicleData`);
+  }
 
+  getVehicleDataAnother(){
+    return this.httpClient.get<VehiclesData[]>(`${API}/vehicleData/`).toPromise();
+  }
+
+  getVehicleDataPorId(id: number){
+    return this.httpClient.get<VehiclesData>(`${API}/vehicleData/${id}`).toPromise();
   }
 
 

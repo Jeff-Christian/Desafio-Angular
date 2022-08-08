@@ -53,55 +53,48 @@
 
 <!-- table -->
 <div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr class="top">
-        <th scope="col">Código - Vin</th>
-        <th scope="col">Odômetro</th>
-        <th scope="col">Nível de Combustivel</th>
-        <th scope="col">Status</th>
-        <th scope="col">Lat.</th>
-        <th scope="col">Long.</th>
-      </tr>
-    </thead>
-
-    <tbody>
-        <tr class="utility">
-          <th scope="row"><input type="text" name="search" id="search" value="2FRHDUYS2Y63NHD22454" [(ngModel)]="searchValue" placeholder="2FRHDUYS2Y63NHD22454" #table="ngModel"></th>
-          <td> odometro </td>
-          <td>NíveldeCombustivel</td>
-          <td>Status</td>
-          <td>Lat.</td>
-          <td>Long.</td>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Código - Vin</th>
+          <th scope="col">Odômetro</th>
+          <th scope="col">Nível de Combustivel</th>
+          <th scope="col">Status</th>
+          <th scope="col">Lat.</th>
+          <th scope="col">Long.</th>
         </tr>
-    </tbody>
+      </thead>
 
-    <tbody>
-      <tr *ngFor="let vehicleData of vehicleDataList! | searchfilter: searchValue">
-        <td scope="col"> {{ vehicleData.vin }} </td>
-        <td scope="col"> {{ vehicleData.odometer }} Km </td>
-        <td scope="col"> {{ vehicleData.fuelLevel }} % </td>
-        <td scope="col"> {{ vehicleData.status }}  </td>
-        <td scope="col"> {{ vehicleData.lat }} </td>
-        <td scope="col"> {{ vehicleData.long }} </td>
-      </tr>
-    </tbody>
+      <tbody>
+        <tr>
+          <th scope="row"><input type="text" name="search" id="search" [(ngModel)]="searchValue" placeholder="2FRHDUYS2Y63NHD22454" #table="ngModel" (keyup)="press($event)"></th>
 
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-  </table>
-</div>
+          <!-- <ng-template *ngIf="searchValue  === '2FRHDUYS2Y63NHD22454' "> -->
+                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue" > {{ vehicleData.odometer }} Km </td>
 
-<div class="conta">
-  <div id="vehicle-container">
+                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.fuelLevel }} % </td>
 
-  </div>
+                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.status }} </td>
+
+                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.lat }} </td>
+
+                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.long }} </td>
+          <!-- </ng-template> -->
+        </tr>
+      </tbody>
+
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+
+
+    </table>
 </div>

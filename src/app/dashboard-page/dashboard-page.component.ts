@@ -15,14 +15,12 @@ import { Vehicles } from '../dashboard-page/dashboard';
 export class DashboardPageComponent implements OnInit {
 
   faUser = faUser;
-  searchValue!: string;
+  searchValue: string = "2FRHDUYS2Y63NHD22454";
 
-  vehicleList?: Vehicles[];
-  volumetotalValue: any;
-  connectedValue: any;
-  softwareValue: any;
+  vehicleList: Vehicles[] = [];
+  vehicleDataList: VehiclesData[] = [];
 
-  vehicleDataList?: VehiclesData[];
+  vehicleDataId1: any;
 
   constructor(
     private vehicleService: VehicleService,
@@ -34,7 +32,7 @@ export class DashboardPageComponent implements OnInit {
     // Vehicle
 
     this.vehicleService.getVehicle().subscribe(
-    (data:any) => {
+    (data: any) => {
       this.vehicleList = data['vehicles'];
     },
       (error) => {
@@ -44,11 +42,26 @@ export class DashboardPageComponent implements OnInit {
 
     // VehicleData
 
+    // this.vehicleDataService.getVehicleDataAnother().then(vehicleData => {
+    //     console.log(vehicleData);
+    //   }).catch(error => {
+    //     console.error(error);
+    //   })
+
+    // Por Id
+    this.vehicleDataService.getVehicleDataPorId(1).then(vehicleData => {
+      this.vehicleDataId1 = vehicleData;
+      console.log(this.vehicleDataId1);
+
+    }).catch(error => {
+      console.error(error);
+    })
+
+
     this.vehicleDataService.getVehicleData().subscribe(
       (data:any) => {
         this.vehicleDataList = data['vehicleData'];
         console.log(this.vehicleDataList);
-
       },
       (error) => {
         console.log(error);
@@ -100,9 +113,12 @@ export class DashboardPageComponent implements OnInit {
 
   }
 
-  pressValue(e: any){
-    console.log(e);
-
+  press(e: any){
+    if(this.searchValue == null || this.searchValue == undefined || this.searchValue.trim() == ''){
+      console.log("não pode isso pô");
+    } else {
+      console.log(e);
+    }
   }
 
 }
