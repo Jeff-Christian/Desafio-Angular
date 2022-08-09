@@ -9,9 +9,9 @@ p{
 }
 
 .title{
-  border-bottom: 1px solid black;
   margin-bottom: 1em;
   background-color: #F7F7F7;
+  font-size: 1.2em;
 }
 
 .col{
@@ -24,6 +24,8 @@ p{
 select{
   padding: 0.5em;
   width: 11em;
+  position: absolute;
+  left: 33px;
 }
 
 /* cards */

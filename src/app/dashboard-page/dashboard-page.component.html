@@ -2,46 +2,49 @@
 <h1 class="text-center">Dashboard FORD</h1>
 
 <div class="container">
+
   <div class="row">
-    <div class="col">
-        <div class="title">
-          <p>Veículo</p>
-        </div>
+
+    <div class="card text-bg-light mb-3 col" style="width: 18rem;">
+      <div class="card-header title">Veículo</div>
+      <div class="card-body">
         <select (change)="ChangeInfo($event)">
           <option> -- Select --</option>
           <option [value]="vehicle.id" *ngFor="let vehicle of vehicleList">
             {{ vehicle.vehicle }}
           </option>
         </select>
-    </div>
-    <div class="col">
-      <div class="title">
-        <p>Total de Vendas</p>
       </div>
-      <span id="totalVendas">
-
-      </span>
-      <p>Unid.</p>
     </div>
-    <div class="col">
-      <div class="title">
-        <p>Conectados</p>
-      </div>
-      <span id="connected">
 
-      </span>
-      <p>Unid.</p>
+    <div class="card text-bg-light mb-3 col" style="width: 18rem;">
+      <div class="card-header title">Total de Vendas</div>
+      <div class="card-body">
+        <span id="totalVendas">
+
+        </span>
+        <p>Unid.</p>
+      </div>
     </div>
-    <div class="col">
-      <div class="title">
-        <p>Update Software</p>
+
+    <div class="card text-bg-light mb-3 col" style="width: 18rem;">
+      <div class="card-header title">Conectados</div>
+      <div class="card-body">
+        <span id="connected">
+
+        </span>
+        <p>Unid.</p>
       </div>
+    </div>
 
-      <span id="updateSoftware">
+    <div class="card text-bg-light mb-3 col" style="width: 18rem;">
+      <div class="card-header title">Update Software</div>
+      <div class="card-body">
+        <span id="updateSoftware">
 
-
-      </span>
-      <p>Unid.</p>
+        </span>
+        <p>Unid.</p>
+      </div>
     </div>
   </div>
 </div>
