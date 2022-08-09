@@ -69,7 +69,11 @@
         <tr>
           <th scope="row"><input type="text" name="search" id="search" [(ngModel)]="searchValue" placeholder="2FRHDUYS2Y63NHD22454" #table="ngModel" (keyup)="press($event)"></th>
 
-          <!-- <ng-template *ngIf="searchValue  === '2FRHDUYS2Y63NHD22454' "> -->
+          <div *ngIf="searchValue !== '2FRHDUYS2Y63NHD22454' && searchValue !== '2RFAASDY54E4HDU34874' && searchValue !== '2FRHDUYS2Y63NHD22455' && searchValue !== '2RFAASDY54E4HDU34875' && searchValue !== '2FRHDUYS2Y63NHD22654' && searchValue !== '2FRHDUYS2Y63NHD22854' ; else searchResult">
+            <p>Insira um código VIN válido</p>
+          </div>
+
+          <ng-template #searchResult>
                 <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue" > {{ vehicleData.odometer }} Km </td>
 
                 <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.fuelLevel }} % </td>
@@ -79,7 +83,7 @@
                 <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.lat }} </td>
 
                 <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.long }} </td>
-          <!-- </ng-template> -->
+          </ng-template>
         </tr>
       </tbody>
 
