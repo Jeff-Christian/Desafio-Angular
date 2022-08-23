@@ -85,8 +85,9 @@ td{
 
 /* button to register */
 
-#btn-register{
+.btn-register{
   background:    #1351d8;
+  border: none;
   border-radius: 11px;
   padding:       10px 30px;
   color:         #ffffff;
@@ -95,7 +96,34 @@ td{
   margin: 2em 2em;
 }
 
+.btn-register:hover{
+  background-color: #3581B9;
+}
+
+.confirm{
+  background-color: black;
+}
+
+.confirm:hover{
+  background-color: #5A5A5A;
+}
+
+.btn-auto{
+  margin-bottom: 1.5em;
+}
+
 /* Form */
+
+#close{
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  right: 35px;
+}
+
+#close:hover{
+  color: #5A5A5A;
+}
 
 .message-center{
   position: absolute;
@@ -116,12 +144,13 @@ td{
 }
 
 input[type=text]::placeholder{
-  color: #ffffff;
+  color: black;
   font-weight: 500;
 }
 
 .form-ajust{
   flex-direction: column;
+  padding: 1.2em;
 }
 
 .col-auto{

@@ -2,9 +2,10 @@ import { VehiclesData } from './dashboardData';
 import { VehicleDataService } from './../services/vehicle-data.service';
 
 import { Component, OnInit, Pipe } from '@angular/core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { VehicleService } from '../services/vehicle.service';
 import { Vehicles } from '../dashboard-page/dashboard';
+
+import { faClose, faUser } from '@fortawesome/free-solid-svg-icons';
 
 import { debounceTime, map, filter, distinctUntilChanged, Observable } from 'rxjs';
 
@@ -19,6 +20,8 @@ import { debounceTime, map, filter, distinctUntilChanged, Observable } from 'rxj
 export class DashboardPageComponent implements OnInit {
 
   faUser = faUser;
+  faClose = faClose;
+
   searchValue: string = "2FRHDUYS2Y63NHD22454";
   searchControl: any;
 
@@ -131,6 +134,11 @@ export class DashboardPageComponent implements OnInit {
   register(){
     const btn = document.querySelector('.message-center');
     btn?.classList.toggle('hidden');
+  }
+
+  close(){
+    const btn = document.querySelector('.message-center');
+    btn?.classList.add('hidden');
   }
 
 }

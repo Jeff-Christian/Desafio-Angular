@@ -49,6 +49,8 @@
   </div>
 
   <div class="message-center card-body hidden">
+    <fa-icon id="close" [icon]="faClose" (click)="close()"></fa-icon>
+
     <form class="row g-3 form-ajust">
       <div class="col-auto">
         <label for="vin">Cadastre a descrição do carro</label>
@@ -87,8 +89,8 @@
         <input type="text" class="form-control" id="long" placeholder="Long">
       </div>
 
-      <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Confirmar Cadastro</button>
+      <div class="col-auto btn-auto">
+        <button type="submit" class="btn-register confirm">Confirmar Cadastro</button>
       </div>
     </form>
   </div>
@@ -152,7 +154,7 @@
     </table>
 </div>
 
-<button id="btn-register" (click)="register()">Cadastrar</button>
+<button class="btn-register" (click)="register()">Cadastrar</button>
 
   <!-- <select>
     <option *ngFor="let vin of vehicleData">
