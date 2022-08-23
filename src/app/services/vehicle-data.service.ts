@@ -15,8 +15,8 @@ export class VehicleDataService {
     private httpClient: HttpClient
   ) { }
 
-  getVehicleData(): Observable<VehiclesData[]>{
-    return this.httpClient.get<VehiclesData[]>(`${API}/vehicleData`);
+  getVehicleData(){
+    return this.httpClient.get(`${API}/vehicleData`);
   }
 
   getVehicleDataAnother(){

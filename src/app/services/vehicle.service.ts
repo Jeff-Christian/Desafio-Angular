@@ -15,6 +15,10 @@ export class VehicleService {
     private httpClient: HttpClient
   ) { }
 
+  get(url: string){
+    return this.httpClient.get(url);
+  }
+
   getVehicle():Observable<any[]>{
     return this.httpClient.get<Vehicles[]>(`${API}/vehicle`);
   }

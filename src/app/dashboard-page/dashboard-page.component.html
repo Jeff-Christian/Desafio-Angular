@@ -70,22 +70,24 @@
 
       <tbody>
         <tr>
-          <th scope="row"><input type="text" name="search" id="search" [(ngModel)]="searchValue" placeholder="2FRHDUYS2Y63NHD22454" #table="ngModel" (keyup)="press($event)"></th>
+          <th scope="row">
+            <input type="text" name="search" id="search" [(ngModel)]="searchValue" placeholder="2FRHDUYS2Y63NHD22454" #table="ngModel" (keyup)="press($event)">
+          </th>
 
           <div *ngIf="searchValue !== '2FRHDUYS2Y63NHD22454' && searchValue !== '2RFAASDY54E4HDU34874' && searchValue !== '2FRHDUYS2Y63NHD22455' && searchValue !== '2RFAASDY54E4HDU34875' && searchValue !== '2FRHDUYS2Y63NHD22654' && searchValue !== '2FRHDUYS2Y63NHD22854' ; else searchResult">
             <p>Insira um código VIN válido</p>
           </div>
 
           <ng-template #searchResult>
-                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue" > {{ vehicleData.odometer }} Km </td>
+                <td *ngFor="let odometer of vehicleData | searchfilter: searchValue" > {{ odometer.odometer }} Km </td>
 
-                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.fuelLevel }} % </td>
+                <td *ngFor="let fuelLevel of vehicleData | searchfilter: searchValue"> {{ fuelLevel.fuelLevel }} % </td>
 
-                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.status }} </td>
+                <td *ngFor="let status of vehicleData | searchfilter: searchValue"> {{ status.status }} </td>
 
-                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.lat }} </td>
+                <td *ngFor="let lat of vehicleData | searchfilter: searchValue"> {{ lat.lat }} </td>
 
-                <td *ngFor="let vehicleData of vehicleDataList | searchfilter: searchValue"> {{ vehicleData.long }} </td>
+                <td *ngFor="let long of vehicleData | searchfilter: searchValue"> {{ long.long }} </td>
           </ng-template>
         </tr>
       </tbody>
@@ -104,4 +106,13 @@
 
 
     </table>
+</div>
+
+
+<div class="container">
+  <select>
+    <option *ngFor="let vin of vehicleData">
+      {{ vin.vin }}
+    </option>
+  </select>
 </div>

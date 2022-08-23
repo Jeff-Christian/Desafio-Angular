@@ -1,10 +1,14 @@
 import { VehiclesData } from './dashboardData';
 import { VehicleDataService } from './../services/vehicle-data.service';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { VehicleService } from '../services/vehicle.service';
 import { Vehicles } from '../dashboard-page/dashboard';
+
+import { debounceTime, map, filter, distinctUntilChanged, Observable } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-dashboard-page',
@@ -16,11 +20,14 @@ export class DashboardPageComponent implements OnInit {
 
   faUser = faUser;
   searchValue: string = "2FRHDUYS2Y63NHD22454";
+  searchControl: any;
 
   vehicleList: Vehicles[] = [];
-  vehicleDataList: VehiclesData[] = [];
 
   vehicleDataId1: any;
+
+  vehicleDataMap: any = [];
+  vehicleData: any;
 
   constructor(
     private vehicleService: VehicleService,
@@ -30,7 +37,6 @@ export class DashboardPageComponent implements OnInit {
   ngOnInit() {
 
     // Vehicle
-
     this.vehicleService.getVehicle().subscribe(
     (data: any) => {
       this.vehicleList = data['vehicles'];
@@ -40,34 +46,35 @@ export class DashboardPageComponent implements OnInit {
       }
     );
 
-    // VehicleData
-
-    // this.vehicleDataService.getVehicleDataAnother().then(vehicleData => {
-    //     console.log(vehicleData);
-    //   }).catch(error => {
-    //     console.error(error);
-    //   })
-
     // Por Id
     this.vehicleDataService.getVehicleDataPorId(1).then(vehicleData => {
       this.vehicleDataId1 = vehicleData;
-      console.log(this.vehicleDataId1);
-
     }).catch(error => {
       console.error(error);
     })
 
-
-    this.vehicleDataService.getVehicleData().subscribe(
+    // Map
+    this.vehicleDataService.getVehicleData().pipe().subscribe(
       (data:any) => {
-        this.vehicleDataList = data['vehicleData'];
-        console.log(this.vehicleDataList);
-      },
-      (error) => {
-        console.log(error);
+        this.vehicleDataMap = data['vehicleData'];
+
+        const vin = this.vehicleDataMap.map((res: any) => {
+          return{
+            vin: res.vin,
+            odometer: res.odometer,
+            fuelLevel: res.fuelLevel,
+            status: res.status,
+            lat: res.lat,
+            long: res.long
+          }
+        });
+        this.vehicleData = vin;
       }
     )
 
+    // this.searchControl.valueChanges.pipe(
+    //   debounceTime(1000)
+    // ).subscribe(console.log);
   }
 
   ChangeInfo(e: any){
