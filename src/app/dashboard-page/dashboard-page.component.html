@@ -3,47 +3,48 @@
 
 <div class="container">
 
-  <div class="row">
-
-    <div class="card text-bg-light mb-3 col" style="width: 18rem;">
-      <div class="card-header title">Veículo</div>
-      <div class="card-body">
-        <select (change)="ChangeInfo($event)">
-          <option> -- Select --</option>
-          <option [value]="vehicle.id" *ngFor="let vehicle of vehicleList">
-            {{ vehicle.vehicle }}
-          </option>
-        </select>
+  <div class="container">
+    <div class="row">
+      <div class="card text-bg-light mb-3 col" style="width: 18rem;">
+        <div class="card-header title">Veículo</div>
+        <div class="card-body">
+          <select (change)="ChangeInfo($event)">
+            <option> -- Select --</option>
+            <option [value]="vehicle.id" *ngFor="let vehicle of vehicleList">
+              {{ vehicle.vehicle }}
+            </option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="card text-bg-light mb-3 col" style="width: 18rem;">
-      <div class="card-header title">Total de Vendas</div>
-      <div class="card-body">
-        <span id="totalVendas">
+      <div class="card text-bg-light mb-3 col" style="width: 18rem;">
+        <div class="card-header title">Total de Vendas</div>
+        <div class="card-body">
+          <span id="totalVendas">
 
-        </span>
-        <p>Unid.</p>
+          </span>
+          <p>Unid.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="card text-bg-light mb-3 col" style="width: 18rem;">
-      <div class="card-header title">Conectados</div>
-      <div class="card-body">
-        <span id="connected">
+      <div class="card text-bg-light mb-3 col" style="width: 18rem;">
+        <div class="card-header title">Conectados</div>
+        <div class="card-body">
+          <span id="connected">
 
-        </span>
-        <p>Unid.</p>
+          </span>
+          <p>Unid.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="card text-bg-light mb-3 col" style="width: 18rem;">
-      <div class="card-header title">Update Software</div>
-      <div class="card-body">
-        <span id="updateSoftware">
+      <div class="card text-bg-light mb-3 col" style="width: 18rem;">
+        <div class="card-header title">Update Software</div>
+        <div class="card-body">
+          <span id="updateSoftware">
 
-        </span>
-        <p>Unid.</p>
+          </span>
+          <p>Unid.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -101,6 +102,7 @@
 </div>
 
 <!-- table -->
+<button class="btn-register" (click)="register()">Cadastrar</button>
 <div class="table-responsive">
     <table class="table">
       <thead>
@@ -153,8 +155,6 @@
 
     </table>
 </div>
-
-<button class="btn-register" (click)="register()">Cadastrar</button>
 
   <!-- <select>
     <option *ngFor="let vin of vehicleData">
