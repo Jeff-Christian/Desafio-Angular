@@ -52,42 +52,42 @@
   <div class="message-center card-body hidden">
     <fa-icon id="close" [icon]="faClose" (click)="close()"></fa-icon>
 
-    <form class="row g-3 form-ajust">
+    <form class="row g-3 form-ajust" #registerForm="ngForm" (ngSubmit)="onRegister(registerForm.value)">
       <div class="col-auto">
         <label for="vin">Cadastre a descrição do carro</label>
         <input type="text" readonly class="form-control-plaintext" id="vin" placeholder="Verifique as informações antes de submiter">
       </div>
       <div class="col-auto">
         <label for="vin">Código - Vin</label>
-        <input type="text" class="form-control" id="vin" placeholder="Vin">
+        <input type="text" class="form-control" id="vin" placeholder="Vin" ngModel name="vin">
       </div>
       <div class="col-auto">
         <label for="odometer">Odômetro</label>
-        <input type="text" class="form-control" id="odometer" placeholder="Odometer">
+        <input type="text" class="form-control" id="odometer" placeholder="Odometer" ngModel name="odometer">
       </div>
       <div class="col-auto">
         <label for="tirePressure">Pressão do Pneu</label>
-        <input type="text" class="form-control" id="tirePressure" placeholder="Tire Pressure">
+        <input type="text" class="form-control" id="tirePressure" placeholder="Tire Pressure" ngModel name="tirePressure">
       </div>
       <div class="col-auto">
         <label for="status">Status</label>
-        <input type="text" class="form-control" id="status" placeholder="Status">
+        <input type="text" class="form-control" id="status" placeholder="Status" ngModel name="status">
       </div>
       <div class="col-auto">
         <label for="batteryStatus">Status da Bateria</label>
-        <input type="text" class="form-control" id="batteryStatus" placeholder="Battery Status">
+        <input type="text" class="form-control" id="batteryStatus" placeholder="Battery Status" ngModel name="batteryStatus">
       </div>
       <div class="col-auto">
         <label for="fuelLevel"> Nível do Combustível </label>
-        <input type="text" class="form-control" id="fuelLevel" placeholder="Fuel Level">
+        <input type="text" class="form-control" id="fuelLevel" placeholder="Fuel Level" ngModel name="fuelLevel">
       </div>
       <div class="col-auto">
         <label for="lat"> Lat </label>
-        <input type="text" class="form-control" id="lat" placeholder="Lat">
+        <input type="text" class="form-control" id="lat" placeholder="Lat" ngModel name="lat">
       </div>
       <div class="col-auto">
         <label for="long"> Long </label>
-        <input type="text" class="form-control" id="long" placeholder="Long">
+        <input type="text" class="form-control" id="long" placeholder="Long" ngModel name="long">
       </div>
 
       <div class="col-auto btn-auto">

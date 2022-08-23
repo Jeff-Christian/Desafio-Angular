@@ -141,4 +141,8 @@ export class DashboardPageComponent implements OnInit {
     btn?.classList.add('hidden');
   }
 
+  onRegister(data: any){
+    console.warn(data);
+  }
+
 }
