@@ -76,3 +76,54 @@ td{
   font-weight: bold;
   color: black;
 }
+
+/* Image */
+
+#image{
+  max-width: 1140px;
+}
+
+/* button to register */
+
+#btn-register{
+  background:    #1351d8;
+  border-radius: 11px;
+  padding:       10px 30px;
+  color:         #ffffff;
+  display:       inline-block;
+  text-align:    center;
+  margin: 2em 2em;
+}
+
+/* Form */
+
+.message-center{
+  position: absolute;
+  width: 500px;
+  max-width: 1140px;
+  margin: 0 auto;
+  background-color: #1351d8;
+  border-radius: 20px;
+  top: 120px;
+  margin-left: 300px;
+  opacity: 1;
+  color: #ffffff;
+}
+
+.hidden{
+  display: none;
+  transition: 0.5s;
+}
+
+input[type=text]::placeholder{
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.form-ajust{
+  flex-direction: column;
+}
+
+.col-auto{
+  height: 50px;
+}

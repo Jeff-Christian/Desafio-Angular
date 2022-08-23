@@ -128,4 +128,9 @@ export class DashboardPageComponent implements OnInit {
     }
   }
 
+  register(){
+    const btn = document.querySelector('.message-center');
+    btn?.classList.toggle('hidden');
+  }
+
 }

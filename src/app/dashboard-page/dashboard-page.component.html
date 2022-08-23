@@ -47,9 +47,53 @@
       </div>
     </div>
   </div>
-</div>
 
-<!-- image -->
+  <div class="message-center card-body hidden">
+    <form class="row g-3 form-ajust">
+      <div class="col-auto">
+        <label for="vin">Cadastre a descrição do carro</label>
+        <input type="text" readonly class="form-control-plaintext" id="vin" placeholder="Verifique as informações antes de submiter">
+      </div>
+      <div class="col-auto">
+        <label for="vin">Código - Vin</label>
+        <input type="text" class="form-control" id="vin" placeholder="Vin">
+      </div>
+      <div class="col-auto">
+        <label for="odometer">Odômetro</label>
+        <input type="text" class="form-control" id="odometer" placeholder="Odometer">
+      </div>
+      <div class="col-auto">
+        <label for="tirePressure">Pressão do Pneu</label>
+        <input type="text" class="form-control" id="tirePressure" placeholder="Tire Pressure">
+      </div>
+      <div class="col-auto">
+        <label for="status">Status</label>
+        <input type="text" class="form-control" id="status" placeholder="Status">
+      </div>
+      <div class="col-auto">
+        <label for="batteryStatus">Status da Bateria</label>
+        <input type="text" class="form-control" id="batteryStatus" placeholder="Battery Status">
+      </div>
+      <div class="col-auto">
+        <label for="fuelLevel"> Nível do Combustível </label>
+        <input type="text" class="form-control" id="fuelLevel" placeholder="Fuel Level">
+      </div>
+      <div class="col-auto">
+        <label for="lat"> Lat </label>
+        <input type="text" class="form-control" id="lat" placeholder="Lat">
+      </div>
+      <div class="col-auto">
+        <label for="long"> Long </label>
+        <input type="text" class="form-control" id="long" placeholder="Long">
+      </div>
+
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Confirmar Cadastro</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- image -->
 <div class="text-center">
   <img src="assets\img\mustang.png" id="image">
 </div>
@@ -108,11 +152,12 @@
     </table>
 </div>
 
+<button id="btn-register" (click)="register()">Cadastrar</button>
 
-<div class="container">
-  <select>
+  <!-- <select>
     <option *ngFor="let vin of vehicleData">
       {{ vin.vin }}
     </option>
-  </select>
+  </select> -->
+
 </div>
