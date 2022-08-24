@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { RegisterVehicleDataService } from './../services/register-vehicle-data.service';
 import { VehiclesData } from './dashboardData';
 import { VehicleDataService } from './../services/vehicle-data.service';
 
@@ -35,6 +37,8 @@ export class DashboardPageComponent implements OnInit {
   constructor(
     private vehicleService: VehicleService,
     private vehicleDataService: VehicleDataService,
+    private RegisterVehicleDataService: RegisterVehicleDataService,
+    private HttpClient: HttpClient,
   ) { }
 
   ngOnInit() {
@@ -142,7 +146,10 @@ export class DashboardPageComponent implements OnInit {
   }
 
   onRegister(data: any){
-    console.warn(data);
+    // this.HttpClient.post("http://localhost:3000/vehicleData", data).subscribe((res) =>{
+    //   console.warn("result", res);
+    // })
+    console.warn(data)
   }
 
 }
