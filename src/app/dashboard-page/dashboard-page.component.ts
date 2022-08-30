@@ -1,15 +1,15 @@
-import { HttpClient } from '@angular/common/http';
 import { RegisterVehicleDataService } from './../services/register-vehicle-data.service';
-import { VehiclesData } from './dashboardData';
 import { VehicleDataService } from './../services/vehicle-data.service';
 
-import { Component, OnInit, Pipe } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Pipe, ViewChild } from '@angular/core';
 import { VehicleService } from '../services/vehicle.service';
 import { Vehicles } from '../dashboard-page/dashboard';
 
 import { faClose, faUser } from '@fortawesome/free-solid-svg-icons';
 
-import { debounceTime, map, filter, distinctUntilChanged, Observable } from 'rxjs';
+import { debounceTime, map, filter, distinctUntilChanged, Observable, fromEvent, concatMap, switchMap, Subscription, tap, merge } from 'rxjs';
+import { VehiclesData, VehicleDataAPI } from './dashboardData';
+import { FormControl } from '@angular/forms';
 
 
 
@@ -19,26 +19,42 @@ import { debounceTime, map, filter, distinctUntilChanged, Observable } from 'rxj
   styleUrls: ['./dashboard-page.component.css']
 })
 
-export class DashboardPageComponent implements OnInit {
+export class DashboardPageComponent implements OnInit{
 
   faUser = faUser;
   faClose = faClose;
 
-  searchValue: string = "2FRHDUYS2Y63NHD22454";
+  searchInput = new FormControl();
+
+  allDatas$ = this.vehicleDataService.getVehicleData().pipe();
+
+  filterInput$ = this.searchInput.valueChanges.pipe(
+    debounceTime(300),
+    filter((valorDigitado) => valorDigitado.length >= 5 || !valorDigitado.length),
+    distinctUntilChanged(),
+    switchMap((valorDigitado) =>
+      this.vehicleDataService.getVehicleData(valorDigitado)
+    ),
+  );
+
+  vehicleData$ = merge(
+    this.allDatas$,
+    this.filterInput$
+  );
+
+  searchValue: any = "2FRHDUYS2Y63NHD22454";
   searchControl: any;
+
+  searchResults!: VehiclesData;
 
   vehicleList: Vehicles[] = [];
 
-  vehicleDataId1: any;
-
-  vehicleDataMap: any = [];
   vehicleData: any;
 
   constructor(
     private vehicleService: VehicleService,
     private vehicleDataService: VehicleDataService,
     private RegisterVehicleDataService: RegisterVehicleDataService,
-    private HttpClient: HttpClient,
   ) { }
 
   ngOnInit() {
@@ -53,35 +69,6 @@ export class DashboardPageComponent implements OnInit {
       }
     );
 
-    // Por Id
-    this.vehicleDataService.getVehicleDataPorId(1).then(vehicleData => {
-      this.vehicleDataId1 = vehicleData;
-    }).catch(error => {
-      console.error(error);
-    })
-
-    // Map
-    this.vehicleDataService.getVehicleData().pipe().subscribe(
-      (data:any) => {
-        this.vehicleDataMap = data['vehicleData'];
-
-        const vin = this.vehicleDataMap.map((res: any) => {
-          return{
-            vin: res.vin,
-            odometer: res.odometer,
-            fuelLevel: res.fuelLevel,
-            status: res.status,
-            lat: res.lat,
-            long: res.long
-          }
-        });
-        this.vehicleData = vin;
-      }
-    )
-
-    // this.searchControl.valueChanges.pipe(
-    //   debounceTime(1000)
-    // ).subscribe(console.log);
   }
 
   ChangeInfo(e: any){
@@ -130,8 +117,6 @@ export class DashboardPageComponent implements OnInit {
   press(e: any){
     if(this.searchValue == null || this.searchValue == undefined || this.searchValue.trim() == ''){
       console.log("não pode isso pô");
-    } else {
-      console.log(e);
     }
   }
 

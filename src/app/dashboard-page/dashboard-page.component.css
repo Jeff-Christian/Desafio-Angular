@@ -1,3 +1,7 @@
+*{
+  overflow: hidden;
+}
+
 h1{
   color: #1351d8;
 }
@@ -136,6 +140,9 @@ td{
   margin-left: 300px;
   opacity: 1;
   color: #ffffff;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 100vh;
 }
 
 .hidden{
@@ -154,5 +161,18 @@ input[type=text]::placeholder{
 }
 
 .col-auto{
-  height: 50px;
+  height: 75px;
+}
+
+.text-success{
+  margin-bottom: 2em;
+}
+
+.input-row{
+  padding: 1.5em 0px;
+}
+
+.result-box{
+  position: absolute;
+  width: 700px;
 }

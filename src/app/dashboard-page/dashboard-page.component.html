@@ -117,27 +117,38 @@
       </thead>
 
       <tbody>
+
         <tr>
-          <th scope="row">
-            <input type="text" name="search" id="search" [(ngModel)]="searchValue" placeholder="2FRHDUYS2Y63NHD22454" #table="ngModel" (keyup)="press($event)">
+          <th scope="row" class="input-row">
+            <input type="text" name="search" id="search" placeholder="2FRHDUYS2Y63NHD22454" #myInput [formControl]="searchInput">
           </th>
 
-          <div *ngIf="searchValue !== '2FRHDUYS2Y63NHD22454' && searchValue !== '2RFAASDY54E4HDU34874' && searchValue !== '2FRHDUYS2Y63NHD22455' && searchValue !== '2RFAASDY54E4HDU34875' && searchValue !== '2FRHDUYS2Y63NHD22654' && searchValue !== '2FRHDUYS2Y63NHD22854' ; else searchResult">
-            <p>Insira um código VIN válido</p>
+          <div class="result-box" *ngIf="vehicleData$ | async as vehicleData; else elseBlock">
+
+            <td *ngFor="let vehicleData of vehicleData">
+              <app-card-result [data]="vehicleData"></app-card-result>
+            </td>
+
           </div>
 
-          <ng-template #searchResult>
-                <td *ngFor="let odometer of vehicleData | searchfilter: searchValue" > {{ odometer.odometer }} Km </td>
-
-                <td *ngFor="let fuelLevel of vehicleData | searchfilter: searchValue"> {{ fuelLevel.fuelLevel }} % </td>
-
-                <td *ngFor="let status of vehicleData | searchfilter: searchValue"> {{ status.status }} </td>
-
-                <td *ngFor="let lat of vehicleData | searchfilter: searchValue"> {{ lat.lat }} </td>
-
-                <td *ngFor="let long of vehicleData | searchfilter: searchValue"> {{ long.long }} </td>
-          </ng-template>
         </tr>
+
+        <ng-template #elseBlock>
+          <p>Por favor insira um código vin válido</p>
+        </ng-template>
+
+        <ng-template #searchResult>
+            <td *ngFor="let vehicleData of vehicleData" > {{ vehicleData.odometer }} Km </td>
+
+            <td *ngFor="let fuelLevel of vehicleData"> {{ fuelLevel.fuelLevel }} % </td>
+
+            <td *ngFor="let status of vehicleData"> {{ status.status }} </td>
+
+            <td *ngFor="let lat of vehicleData"> {{ lat.lat }} </td>
+
+            <td *ngFor="let long of vehicleData"> {{ long.long }} </td>
+        </ng-template>
+
       </tbody>
 
       <thead>
@@ -150,8 +161,6 @@
           <th scope="col"></th>
         </tr>
       </thead>
-
-
 
     </table>
 </div>
